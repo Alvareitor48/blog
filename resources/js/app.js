@@ -92,4 +92,23 @@ if (themeMenu) {
     });
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const userMenu = document.getElementById("user-menu");
+    const toggleUserMenuButton = document.getElementById("toggle-user-menu");
+
+    if (toggleUserMenuButton && userMenu) {
+        // Mostrar/ocultar el menú al hacer clic en el botón
+        toggleUserMenuButton.addEventListener('click', () => {
+            userMenu.classList.toggle('hidden');
+        });
+
+        // Cerrar el menú si se hace clic fuera del menú o del botón
+        document.addEventListener('click', (event) => {
+            if (!toggleUserMenuButton.contains(event.target) && !userMenu.contains(event.target)) {
+                userMenu.classList.add('hidden');
+            }
+        });
+    }
+});
+
 

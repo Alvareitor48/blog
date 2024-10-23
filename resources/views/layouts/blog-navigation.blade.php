@@ -235,15 +235,49 @@
                     </button>
                 </div>
             </div>
-            <button
-                class="ml-4 rounded-full text-slate-500 transition-colors hover:text-sky-500 focus:ring-2 focus:ring-slate-200 focus:ring-offset-1"
-            >
-                <img
-                    class="h-6 w-6 rounded-full"
-                    src="https://ui-avatars.com/api?name=Jorge+Garcia"
-                    alt="Jorge García"
-                />
-            </button>
+            <div class="relative pt-1">
+                <!-- Botón de usuario (con imagen) -->
+                <button
+                    id="toggle-user-menu"
+                    class="ml-4 rounded-full text-slate-500 transition-colors hover:text-sky-500 focus:ring-2 focus:ring-slate-200 focus:ring-offset-1"
+                >
+                    <img
+                        class="h-6 w-6 rounded-full"
+                        src="https://ui-avatars.com/api?name=Jorge+Garcia"
+                        alt="Jorge García"
+                    />
+                </button>
+
+                <!-- Menú desplegable -->
+                <div
+                    id="user-menu"
+                    class="absolute right-0 z-20 hidden w-28 overflow-hidden rounded-md bg-white/90 shadow-lg dark:bg-slate-800/90"
+                >
+                    @guest
+                        <a
+                            href="{{ route('login') }}"
+                            class="flex w-full items-center space-x-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 focus:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-900 dark:focus:bg-slate-900"
+                        >
+                            Login
+                        </a>
+                        <a
+                            href="{{ route('register') }}"
+                            class="flex w-full items-center space-x-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 focus:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-900 dark:focus:bg-slate-900"
+                        >
+                            Sign Up
+                        </a>
+                    @endguest
+                    @auth
+                            <a
+                                href="{{ route('dashboard') }}"
+                                class="flex w-full items-center space-x-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 focus:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-900 dark:focus:bg-slate-900"
+                            >
+                                Dashboard
+                            </a>
+                        @endauth
+
+                </div>
+            </div>
         </div>
     </div>
     <div
