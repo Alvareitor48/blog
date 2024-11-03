@@ -8,8 +8,9 @@
                 especificación JSON:API"
             />
         </div>--}}
-
         @auth
+        @if(auth()->user()->id === $post->user_id)
+            {{request()->routeIs()}}
         <div
             class="flex items-center justify-center space-x-10"
         >
@@ -60,8 +61,8 @@
                 </button>
             </form>
         </div>
+        @endif
         @endauth
-
         <div class="flex-1 space-y-3 pt-4 md:text-center">
             {{--<h3
                 class="text-sm font-semibold text-sky-500 dark:text-sky-400"
@@ -74,7 +75,7 @@
                 {{ $post->title }}
             </h2>
         </div>
-        {{--<div class="flex space-x-2 pt-4 md:mx-auto">
+        <div class="flex space-x-2 pt-4 mt-24 md:mx-auto">
             <img
                 class="h-10 w-10 rounded-full"
                 src="https://ui-avatars.com/api?name=Jorge García"
@@ -92,7 +93,7 @@
               Mar 18, 2023
             </span>
             </div>
-        </div>--}}
+        </div>
         <div
             class="prose prose-slate mx-auto mt-6 dark:prose-invert lg:prose-xl"
         >

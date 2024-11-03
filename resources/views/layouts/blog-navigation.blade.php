@@ -243,8 +243,8 @@
                 >
                     <img
                         class="h-6 w-6 rounded-full"
-                        src="https://ui-avatars.com/api?name=Jorge+Garcia"
-                        alt="Jorge García"
+                        @auth src="https://ui-avatars.com/api?name={{auth()->user()->name}}+{{ auth()->user()->last_name }}" @endauth
+                        alt="@auth{{auth()->user()->name}} {{ auth()->user()->{'last-name'} }}@endauth @guest P @endguest"
                     />
                 </button>
 

@@ -33,7 +33,7 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        Post::create($request->validated());
+        Post::create($request->validated()+ ['user_id' => auth()->id()]);
 
         return to_route('posts.index')
             ->with('status', 'Post created successfully');
@@ -59,4 +59,11 @@ class PostController extends Controller
         return to_route('posts.index')
             ->with('status', 'Post deleted successfully');
     }
+
+    public function userPosts()
+    {
+        $posts = Post::where('user_id', auth()->user()->id)->get();
+        return view('posts.user-posts', compact('posts'));
+    }
+
 }
