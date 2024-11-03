@@ -75,27 +75,8 @@
                 {{ $post->title }}
             </h2>
         </div>
-        <div class="flex space-x-2 pt-4 mt-24 md:mx-auto">
-            <img
-                class="h-10 w-10 rounded-full"
-                src="https://ui-avatars.com/api?name=Jorge García"
-                alt="Jorge García"
-            />
-            <div class="flex flex-col justify-center">
-            <span
-                class="text-sm font-semibold leading-4 text-slate-600 dark:text-slate-400"
-            >
-              Jorge García
-            </span>
-                <span
-                    class="text-sm text-slate-500 dark:text-slate-400"
-                >
-              Mar 18, 2023
-            </span>
-            </div>
-        </div>
         <div
-            class="prose prose-slate mx-auto mt-6 dark:prose-invert lg:prose-xl"
+            class="prose prose-slate mx-auto mt-6 dark:prose-invert dark:text-white lg:prose-xl"
         >
             <p>
                 {{ $post->body }}
@@ -128,6 +109,26 @@
                 praesentium numquam possimus quaerat doloribus!
                 Praesentium, provident accusantium.
             </p>--}}
+        </div>
+        <div class="flex space-x-2 pt-4 mt-24 md:mx-auto">
+            <img
+                class="h-10 w-10 rounded-full"
+                src="https://ui-avatars.com/api?name={{$post->user->name}} {{$post->user->last_name}}"
+                alt="Jorge García"
+            />
+            <div class="flex flex-col justify-center">
+            <span
+                class="text-sm font-semibold leading-4 text-slate-600 dark:text-slate-400"
+            >
+              {{$post->user->name}} {{$post->user->last_name}}
+            </span>
+                <span
+                    class="text-sm text-slate-500 dark:text-slate-400"
+                >
+                    {{$post->published_at}}
+                    {{--Mar 18, 2023--}}
+            </span>
+            </div>
         </div>
     </article>
 </x-blog-layout>
